@@ -11,8 +11,8 @@ function SearchResults(props){
     }
 
     return(
-        <div>
-            {props.filteredSongs.map(formatResults)}
+        <div>                                                               
+            <p>Test Search Results: {props.FilteredSongsProp}</p>
         </div>
     )
 }

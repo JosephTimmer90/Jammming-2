@@ -6,6 +6,7 @@ function SearchBar(props){
             <div>
                 <label>Song Search: </label>
                 <input onChange={props.onChange}></input>
+                <p>{props.SearchBarValue}</p>
             </div>
             <button className='searchButton' onClick={props.onClick}>Search</button>
         </form>

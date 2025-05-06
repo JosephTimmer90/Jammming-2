@@ -37,14 +37,36 @@ let songs = [
   }
 ]
 
-let filteredSongs = [];
+
 
 
 function App() {
   let JsxReturn;
+  let testSong = [{
+    songName: 'The Sound of Silence',
+    artist: 'Simon and Garfunkle',
+    album: 'Sage'
+  }];
+  let testVariable = 'This is the test variable.';
+  let testArray = ['this ', 'is ', 'the ', 'test ', 'array'];
+  let testObject = {first: 'this',
+    second: 'is',
+    third: 'the',
+    fourth: 'test',
+    fifth: 'object'
+  }
 
-  const [appMode, setAppMode] = useState('Search results');
+  let arrayOfObjects = [
+    {name: 'this', value: 1},
+    {name: 'is', value: 2},
+    {name: 'the', value: 3},
+    {name: 'test', value: 4},
+    {name: 'object array', value: 5}
+  ];
+
+  const [appMode, setAppMode] = useState('Intro');
   const [searchBarValue, setSearchBarValue] = useState('');
+  const [filteredSongs, setFilteredSongs] = useState(['this is the initial value']);
 
   function handleSearchBarChange(event){
     setSearchBarValue(event.target.value);
@@ -52,10 +74,10 @@ function App() {
 
   function filterSongs(){
     function filterFunction(element){
-      element.songName.includes(searchBarValue) || element.artist.includes(searchBarValue) ||element.album.includes(searchBarValue)
+      return element.songName.includes(searchBarValue);
     }
-    filteredSongs = songs.filter(filterFunction);
-    console.log(filteredSongs);
+    setFilteredSongs(songs.filter(filterFunction));
+    
   }
 
 
@@ -64,7 +86,7 @@ function App() {
     JsxReturn = (
       <div className="App">
         <Header />
-        <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue}  filteredSongs={filteredSongs} />
+        <Main arrayOfObjects={arrayOfObjects} Variable={testVariable} Array={testArray} Object={testObject} onChange={handleSearchBarChange} SearchBarValue={searchBarValue}  filteredSongsProp={filteredSongs} />
         <Footer />
       </div>
     )
@@ -75,8 +97,10 @@ function App() {
       <div className="App">
         <Header />
         <div className='Split-screen'>
-          <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue} filteredSongs={filteredSongs} onClick={filterSongs}/>
-          <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue} filteredSongs={filteredSongs} />
+          <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue} FilteredSongsProp={filteredSongs} onClick={filterSongs} testSongTest={testSong} testVariable={testVariable} arr={testArray}/>
+          <p>Test App: {testSong[0].songName}</p>
+          <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue} FilteredSongsProp={filteredSongs} />
+          
         </div>
         <Footer />
       </div>
