@@ -3,85 +3,96 @@ import React, { useState } from 'react';
 import Header from './AppComponents/Header';
 import Main from './AppComponents/Main';
 import Footer from './AppComponents/Footer';
+import Playlist from './AppComponents/Playlist';
 
-let songs = [
+
+
+function App() {
+  let JsxReturn;
+
+  const [songs] = useState(
+    [
   {
     songName: 'Hit Me Baby One More Time',
     artist: 'Brittany Spears',
-    album: 'Greatest Hits'
+    album: 'Greatest Hits',
+    id: 'a'
   },
   {
     songName: 'Carry on My Wayward son',
     artist: 'Kansas',
-    album: 'Coral'
+    album: 'Coral',
+    id: 'b'
   },
   {
     songName: 'The Sickness',
     artist: 'Disturbed',
-    album: 'Seafoam'
+    album: 'Seafoam',
+    id: 'c'
   },
   {
     songName: 'Fernando',
     artist: 'Abba',
-    album: 'Fern'
+    album: 'Fern',
+    id: 'd'
   },
   {
     songName: 'Mama Mia',
     artist: 'Abba',
-    album: 'Mango'
+    album: 'Fern',
+    id: 'e'
   },
   {
     songName: 'The Sound of Silence',
     artist: 'Simon and Garfunkle',
-    album: 'Sage'
+    album: 'Sage',
+    id: 'f'
   }
 ]
 
-function App() {
-  let JsxReturn;
-  let testSong = {
-    songName: 'Mama Mia',
-    artist: 'Abba',
-    album: 'Mango'
-  };
-
-  let newSong = {
-    songName: 'The Sound of Silence',
-    artist: 'Simon and Garfunkle',
-    album: 'Sage'
-  };
-
-  let testVarProps = 'testVarProps1';
-  let testArrProps = ['testArrProps1', 'testArrProps2', 'testArrProps3'];
-  let testObjProps = {
-    songName: 'The Sound of Silence',
-    artist: 'Simon and Garfunkle',
-    album: 'Sage'
-  };
-
-  let testSearchResults = 'testSearchResults1';
-
+  )
   const [appMode, setAppMode] = useState('Intro');
   const [searchBarValue, setSearchBarValue] = useState('');
-  const [filteredSongs, setFilteredSongs] = useState([testSong]);
-  const [testMainOnClick, setTestMainOnClick] = useState(newSong);
+  const [filteredSongs, setFilteredSongs] = useState([]);
+  const [playlistSongs, setPlaylistSongs] = useState([]);
 
   function handleSearchBarChange(event){
     setSearchBarValue(event.target.value);
     
   }
 
-  function filterSongs(){
+  function filterSongs(event){
+    event.preventDefault();
     function filterFunction(element){
-      return element.songName.includes(searchBarValue);
+      let searchTerm = searchBarValue.toLowerCase();
+      let elementName = element.songName.toLowerCase();
+      let elementArtist = element.artist.toLowerCase();
+      let elementAlbum = element.album.toLowerCase();
+      if(searchTerm === ''){
+        return true;
+      }
+      else if(elementName.includes(searchTerm) || elementArtist.includes(searchTerm) || elementAlbum.includes(searchTerm)){
+        return true;
+      }
     }
-    let tempSong = songs.filter(filterFunction);
-    setFilteredSongs(tempSong[0]);
-    setAppMode('test mode');
-    
+    let tempSongs = [...songs.filter(filterFunction)];
+    setFilteredSongs(tempSongs);
+    setAppMode('Search Results');
   }
 
+  function addSongToPlaylist(index){
+    let tempSong = filteredSongs[index];
+    let tempPlaylist = [...playlistSongs, tempSong];
+    setPlaylistSongs(tempPlaylist);
+    setAppMode('Search Results');
+}
 
+  function deleteSongFromPlaylist(index){
+
+    let tempPlaylist = [...playlistSongs];
+    tempPlaylist.splice(index, 1);
+    setPlaylistSongs(tempPlaylist);
+  }
 
   if(appMode === 'Intro'){
     JsxReturn = (
@@ -100,31 +111,15 @@ function App() {
         <div className='Split-screen'>
           <Main onChange={handleSearchBarChange}
             SearchBarValue={searchBarValue}
-            FilteredSongsProp={filteredSongs}
-            onClick={filterSongs}
-            testArrProps={testArrProps} />
-          <Main onChange={handleSearchBarChange} SearchBarValue={searchBarValue} filteredSongsProp={testSong.songName} />
-          {newSong.songName}
-          {testSong.songName}
-          
-        </div>
-        <Footer />
-      </div>
-    )
-  }
-
-  else if(appMode === "test mode"){
-    JsxReturn = (
-      <div className="App">
-        <Header />
-        <div className='Split-screen'>
-          <Main onChange={handleSearchBarChange}
-            SearchBarValue={searchBarValue}
             filteredSongsProp={filteredSongs}
             onClick={filterSongs}
-            testArrProps={testArrProps}
-            newSong={newSong} />
-          
+            addSongToPlaylist={addSongToPlaylist}
+          />
+          <Playlist
+            playlist={playlistSongs}
+            deleteSongFromPlaylist={deleteSongFromPlaylist}
+            
+          />
         </div>
         <Footer />
       </div>
