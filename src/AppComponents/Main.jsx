@@ -1,11 +1,13 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
+import PlaylistSearchBar from './PlaylistSearchBar';
 
 function Main(props){
     return(
-        <main className='side-by-side'>
-          <SearchBar 
+        <main className='Main-Search-Results'>
+          {props.songSearch ? <h2>Song Search</h2> : <p></p>}
+          <SearchBar
             onChange={props.onChange}
             SearchBarValue={props.SearchBarValue}
             onClick={props.onClick}

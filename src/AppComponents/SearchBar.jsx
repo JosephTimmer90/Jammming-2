@@ -8,7 +8,7 @@ function SearchBar(props){
                 <input onChange={props.onChange}></input>
                 <p>{props.SearchBarValue}</p>
             </div>
-            <button className='searchButton' onClick={props.onClick}>Search</button>
+            <button type="button" className='searchButton' onClick={props.onClick}>Search</button>
         </form>
     )
 }
