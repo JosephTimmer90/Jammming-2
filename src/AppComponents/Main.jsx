@@ -1,7 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
-import PlaylistSearchBar from './PlaylistSearchBar';
 
 function Main(props){
     return(

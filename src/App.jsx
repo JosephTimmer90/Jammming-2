@@ -5,9 +5,12 @@ import Main from './AppComponents/Main';
 import Footer from './AppComponents/Footer';
 import Playlist from './AppComponents/Playlist';
 import UpdatePlaylistName from './AppComponents/UpdatePlaylistName';
+import Playlists from './AppComponents/Playlists';
 import Spotify from './AppComponents/Spotify';
 
-
+export function add(num1, num2) {
+  return num1 + num2;
+}
 
 function App() {
   let JsxReturn;
@@ -481,9 +484,9 @@ function App() {
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
         />
-
-        <h3>This is view playlists mode.</h3>
-        
+        <Playlists 
+          selectPlaylist = {selectPlaylist}
+        /> 
         <Footer />
       </div>
     )

@@ -2,6 +2,10 @@
   "name": "jammming-2",
   "version": "0.1.0",
   "private": true,
+    "spec": "test/App-test.js",
+    "timeout": 5000,
+    "ui": "bdd",
+    "reporter": "spec",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
@@ -15,7 +19,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "mocha --require @babel/register \"./test/App-test.js\"",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -35,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.28.0",
+    "@babel/register": "^7.27.1",
+    "mocha": "^11.7.1"
   }
 }
