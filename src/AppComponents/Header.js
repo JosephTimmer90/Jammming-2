@@ -24,6 +24,7 @@ function Header(props){
                     <li className='nav-button' role='button' onClick={props.handleChangeToViewPlaylistsMode}>View Playlists</li>
                     <li className='nav-button' role='button' onClick={props.handleChangeToUpdatePlaylistNameMode}>Rename Current Playlist</li>
                     <li className='nav-button' role='button' onClick={props.handleChangeToSpotifyMode}>Spotify</li>
+                    <li className='nav-button' role='button' onClick={props.handleChangeToObtainSpotifyAccessTokenMode}>Obtain Spotify Access Token</li>
                 </ul>
             </div>
             

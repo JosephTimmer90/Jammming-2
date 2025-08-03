@@ -7,6 +7,7 @@ import Playlist from './AppComponents/Playlist';
 import UpdatePlaylistName from './AppComponents/UpdatePlaylistName';
 import Playlists from './AppComponents/Playlists';
 import Spotify from './AppComponents/Spotify';
+import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
 
 export function add(num1, num2) {
   return num1 + num2;
@@ -316,6 +317,11 @@ function App() {
     setAppMode('Spotify');
   }
 
+  function handleChangeToObtainSpotifyAccessTokenMode(event){
+    event.preventDefault();
+    setAppMode('Obtain Spotify Access Token');
+  }
+
   if(appMode === 'Intro'){
     JsxReturn = (
       <div className="App">
@@ -328,6 +334,7 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <Main
           onChange={handleSearchBarChange}
@@ -350,6 +357,7 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <div className='Split-screen'>
           <Main 
@@ -400,6 +408,7 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <div className='Split-screen'>
           <Main
@@ -450,6 +459,7 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <UpdatePlaylistName
           handleSelectPlaylist={handleSelectPlaylist}
@@ -483,6 +493,7 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <Playlists 
           selectPlaylist = {selectPlaylist}
@@ -505,9 +516,33 @@ function App() {
           handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
           handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
         <Spotify
           spotifyURIs={spotifyURIs}
+        />
+        <Footer />
+      </div>
+    )
+
+  }
+
+  else if(appMode === 'Obtain Spotify Access Token'){
+    JsxReturn = (
+      <div className='App'>
+        <Header
+          handleOpenNavigationMenu={handleOpenNavigationMenu}
+          handleCloseNavigationMenu={handleCloseNavigationMenu}
+          handleChangeToViewPlaylistsMode={handleChangeToViewPlaylistsMode}
+          handleChangeToHomeMode={handleChangeToHomeMode}
+          handleChangeToUpdatePlaylistNameMode={handleChangeToUpdatePlaylistNameMode}
+          handleChangeToBuildPlaylistMode={handleChangeToBuildPlaylistMode}
+          handleChangeToPlaylistFilterMode={handleChangeToPlaylistFilterMode}
+          handleChangeToSpotifyMode={handleChangeToSpotifyMode}
+          handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
+        />
+        <ObtainSpotifyAccessToken
+          
         />
         <Footer />
       </div>
