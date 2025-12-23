@@ -6,3 +6,5 @@ function Game(){
         <p>THis is where the game will go.</p>
     )
 }
+
+export default Game;

@@ -5,6 +5,7 @@ import OldApp from './AppComponents/OldApp'
 import Root from './AppComponents/Root';
 import AccessTokenRetrieval from './AppComponents/AccessTokenRetrieval';
 import AccessTokenDisplay from './AppComponents/AccessTokenDisplay';
+import Game from './AppComponents/Game';
 import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
 
 import ReactRouterTest from './AppComponents/ReactRouterTest'
