@@ -5,9 +5,10 @@ import Playlist from './Playlist';
 import UpdatePlaylistName from './UpdatePlaylistName';
 import Playlists from './Playlists';
 import Spotify from './Spotify';
+import Main from './Main'
 
 
-function Main() {
+function OldApp() {
   let JsxReturn;
 
   const [songs] = useState(
@@ -51,18 +52,28 @@ function Main() {
 ]
 
   )
+
+  //deprecated state
   const [appMode, setAppMode] = useState('Intro');
+
+  //Main search state
   const [searchBarValue, setSearchBarValue] = useState('');
+
+  //Playlist state
   const [playlistSearchBarValue, setPlaylistSearchBarValue] = useState('');
-  const [filteredSongs, setFilteredSongs] = useState([]);
   const [playlistSongs, setPlaylistSongs] = useState([]);
-  const [filteredPlaylistSongs, setFilteredPlaylistSongs] = useState([]);
   const [selectPlaylistSearchBarValue, setSelectPlaylistSearchBarValue] = useState('');
   const [selectPlaylist, setSelectPlaylist] = useState([]);
   const [createPlaylistSearchBarValue, setCreatePlaylistSearchBarValue] = useState('');
   const [currentPlaylist, setCurrentPlaylist] = useState('');
   const [playlistNameChangeSearchBarValue, setPlaylistNameChangeSearchBarValue] = useState('');
   const [updatePlaylistNameSelectPlaylistSearchBarValue, setUpdatePlaylistNameSelectPlaylistSearchBarValue] = useState('');
+
+  //Filter state
+  const [filteredSongs, setFilteredSongs] = useState([]);
+  const [filteredPlaylistSongs, setFilteredPlaylistSongs] = useState([]);
+
+  //Spotify State
   const [spotifyURIs, setSpotifyURIs] = useState([]);
 
   function handleOpenNavigationMenu(event){
@@ -330,10 +341,7 @@ function Main() {
           handleChangeToSpotifyMode={handleChangeToSpotifyMode}
           handleChangeToObtainSpotifyAccessTokenMode={handleChangeToObtainSpotifyAccessTokenMode}
         />
-        <Main
-          onChange={handleSearchBarChange}
-          SearchBarValue={searchBarValue}
-          onClick={filterSongs}/>
+        
         <Footer />
       </div>
     )
@@ -543,4 +551,4 @@ function Main() {
   return JsxReturn;
 }
 
-export default Main;
+export default OldApp;

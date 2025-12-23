@@ -1,9 +1,11 @@
 import {useState} from 'react';
 import './App.css';
 import Main from './AppComponents/Main';
+import OldApp from './AppComponents/OldApp'
 import Root from './AppComponents/Root';
 import AccessTokenRetrieval from './AppComponents/AccessTokenRetrieval';
 import AccessTokenDisplay from './AppComponents/AccessTokenDisplay';
+import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
 
 import ReactRouterTest from './AppComponents/ReactRouterTest'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider,  } from 'react-router-dom';
@@ -23,6 +25,8 @@ function App() {
 
  
 
+ 
+
   const router = createBrowserRouter(createRoutesFromElements(
   <Route path='/' element={ <Root
                               handleOpenRouterNav={handleOpenRouterNav}
@@ -33,12 +37,18 @@ function App() {
                                                               saveAccessToken={saveAccessToken} />} />
     <Route path='accessTokenDisplay' element= {<AccessTokenDisplay 
                                                   savedAccessToken={savedAccessToken} />} />
+    <Route path='Game' element= {<Game />} />
+    <Route path='obtainSpotifyAccessToken' element={<ObtainSpotifyAccessToken
+                                                      savedAccessToken={savedAccessToken}/>} />
+    <Route path='OldApp' element={<OldApp/>} />
+    
   </Route>
 ));
 
   function saveAccessToken(accessToken){
     setSavedAccessToken(accessToken);
   }
+
   return (
     <>
       <RouterProvider router={router} />
