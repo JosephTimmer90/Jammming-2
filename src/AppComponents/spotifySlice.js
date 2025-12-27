@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const spotify = {
-    name: spotify,
+    name: 'spotify',
     initialState: [],
     reducers: {
 

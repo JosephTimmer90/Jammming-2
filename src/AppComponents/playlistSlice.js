@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const playlist = {
-    name: playlist,
+    name: 'playlist',
     initialState: [],
     reducers: {
         updatePlaylistSearchBar: (state, action) => {

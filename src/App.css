@@ -1,3 +1,5 @@
+/* Original ruleset */
+
 .App {
   text-align: center;
 }
@@ -220,4 +222,52 @@
   background-color: lightblue;
   min-width: 45vw;
   padding: 10px;
+}
+
+/* Game RuleSet */
+
+.GameArea{
+  background-image: url("../public/GameBackground.png");
+  background-position: center;
+  background-size: cover;
+  height: 75vh;
+  width: 99.5vw;
+  z-index: -10;
+}
+
+.GameHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  z-index: 10;
+  color: white;
+  border: 2px solid white;
+  padding: 5px;
+}
+
+.Turret{
+  background-image: url('../public/Turret.png');
+  background-size: contain;
+  position: absolute;
+  height: 10vh;
+  width: 5vw;
+  z-index: 0;
+  top: 62vh;
+  left: 0vh;
+}
+
+.Laser{
+  position: absolute;
+  height: 50px;
+  width: 10px;
+  background-color: red;
+}
+
+.GameOverDialog{
+  border: 2px solid red;
+  z-index: 15;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  align-content: center;
 }

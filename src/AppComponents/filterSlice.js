@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit';
 
 const filter = {
-    name: filter,
+    name: 'filter',
     initialState: [],
     reducers: {
         updatefilteredSongs: (state, action) =>{
@@ -14,6 +14,8 @@ const filter = {
     }
 }
 
-export const filterSlice = createSlice(filter);
+const filterSlice = createSlice(filter);
 
 export const {updatefilteredSongs, updatefilteredPlaylistSongs} = filterSlice.actions;
+
+export default filterSlice.reducer;
