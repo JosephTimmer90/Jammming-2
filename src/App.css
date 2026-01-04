@@ -1,12 +1,18 @@
 /* Original ruleset */
 
+:root{
+  --appHeaderHeight: 20vh;
+  --appFooterHeight: 10vh;
+  --gameMobileHeaderHeight: 10vh;
+}
+
 .App {
   text-align: center;
 }
 
 .App-header {
   background-color: #282c34;
-  height: 20vh;
+  height: var(--appHeaderHeight);
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -192,7 +198,7 @@
 
 .App-footer{
     background-color: #282c34;
-    height: 10vh;
+    height: var(--appFooterHeight);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -239,10 +245,17 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  height: var(--gameMobileHeaderHeight);
   z-index: 10;
   color: white;
   border: 2px solid white;
   padding: 5px;
+}
+
+.GamePieceArea{
+  position: relative;
+  border: 2px soilid red;
+  height:  calc(100vh - var(--appFooterHeight) - var(--appHeaderHeight) - var(--gameMobileHeaderHeight))
 }
 
 .Turret{
@@ -252,8 +265,7 @@
   height: 10vh;
   width: 5vw;
   z-index: 0;
-  top: 62vh;
-  left: 0vh;
+
 }
 
 .Laser{
@@ -271,3 +283,27 @@
   text-align: center;
   align-content: center;
 }
+
+.GameFooterContainer{
+  display: flex;
+  border: 2px solid red;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+  width: auto;
+
+}
+
+.GameButton{
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: blue;
+  color: white;
+}
+
+.FireButton{
+  background-color: red;
+  color: white;
+}
+

@@ -30,6 +30,12 @@ function Header(props){
     function handleIntroNav(){
         navigate('/intro')
     }
+    function handleReactResponsiveWithHooksNav(){
+        navigate('/ReactResponsiveWithHooks')
+    }
+    function handleReactResponsiveWithComponents(){
+        navigate('/ReactResponsiveWithComponents')
+    }
 
     return(
         <header className="App-header">
@@ -57,6 +63,8 @@ function Header(props){
                     <li className='router-nav-button' role='button' onClick={handleOldAppNav}>Old App</li>
                     <li className='router-nav-button' role='button' onClick={handleIntroNav}>Intro</li>
                     <li className='router-nav-button' role='button' onClick>r-Obtain Spotify Access Token</li>
+                    <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithHooksNav}>React-Responsive With Hooks</li>
+                    <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithComponents}>React-Responsive With Components</li>
                 </ul>
             </div>
             

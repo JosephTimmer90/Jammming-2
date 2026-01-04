@@ -7,6 +7,8 @@ import AccessTokenRetrieval from './AppComponents/AccessTokenRetrieval';
 import AccessTokenDisplay from './AppComponents/AccessTokenDisplay';
 import Game from './AppComponents/Game';
 import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
+import ReactResponsiveWithHooks from './AppComponents/ReactResponsiveWithHooks'
+import ReactResponsiveWithComponents from './AppComponents/ReactResponsiveWithComponents';
 
 import ReactRouterTest from './AppComponents/ReactRouterTest'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider,  } from 'react-router-dom';
@@ -42,7 +44,8 @@ function App() {
     <Route path='obtainSpotifyAccessToken' element={<ObtainSpotifyAccessToken
                                                       savedAccessToken={savedAccessToken}/>} />
     <Route path='OldApp' element={<OldApp/>} />
-    
+    <Route path='ReactResponsiveWithHooks' element={<ReactResponsiveWithHooks />} />
+    <Route path='ReactResponsiveWithComponents' element={<ReactResponsiveWithComponents />} />
   </Route>
 ));
 
