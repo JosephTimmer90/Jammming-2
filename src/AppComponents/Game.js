@@ -12,9 +12,6 @@ function Game(){
     const alienArray = useSelector(state => state.game.alienArray);
     const gameOver = useSelector(state => state.game.gameOver);
     const minBigScreen = 1023;
-    const minMedScreen = 767;
-    const minTabletScreen = 436;
-    const minBigMobileScreen = 376;
     const isBigScreen = useMediaQuery({query: '(min-width: 1023)' })
     const isMedScreen = useMediaQuery({query: '(min-width: 767)'})
     const isTabScreen = useMediaQuery({query: '(min-width: 426)'})
@@ -94,7 +91,7 @@ function Game(){
             clearInterval(spawnLoop);
             clearInterval(collisionDetectionLoop);
         };
-    }, [dispatch, turretX, isBigScreen, isMedScreen, isTabScreen, isBigMobile]);
+    }, [dispatch, turretX, isBigScreen, isMedScreen, isTabScreen, isBigMobile, screenWidth]);
 
     return (
         <>
