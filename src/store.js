@@ -4,6 +4,7 @@ import playlistSliceReducer from './AppComponents/playlistSlice';
 import filterSliceReducer from './AppComponents/filterSlice';
 import spotifySliceReducer from './AppComponents/spotifySlice';
 import gameSliceReducer from './AppComponents/gameSlice';
+import ticTacJoeReducer from './AppComponents/TicTacJoe';
 
 export const store = configureStore({
     reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
         playlist: playlistSliceReducer,
         filter: filterSliceReducer,
         spotify: spotifySliceReducer,
-        game: gameSliceReducer
+        game: gameSliceReducer,
+        ticTacJoe: ticTacJoeReducer
     }
 });
 

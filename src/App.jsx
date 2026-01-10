@@ -9,6 +9,8 @@ import Game from './AppComponents/Game';
 import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
 import ReactResponsiveWithHooks from './AppComponents/ReactResponsiveWithHooks'
 import ReactResponsiveWithComponents from './AppComponents/ReactResponsiveWithComponents';
+import TicTacJoe from './AppComponents/TicTacJoe';
+import NewTest from './AppComponents/NewTest';
 
 import ReactRouterTest from './AppComponents/ReactRouterTest'
 import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider,  } from 'react-router-dom';
@@ -46,6 +48,8 @@ function App() {
     <Route path='OldApp' element={<OldApp/>} />
     <Route path='ReactResponsiveWithHooks' element={<ReactResponsiveWithHooks />} />
     <Route path='ReactResponsiveWithComponents' element={<ReactResponsiveWithComponents />} />
+    <Route path='TicTacJoe' element={<TicTacJoe />} />
+    <Route path='NewTest' element={<NewTest />} />
   </Route>
 ));
 

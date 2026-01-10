@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+const screenWidth = window.innerWidth;
 
 
 
@@ -36,6 +37,12 @@ function Header(props){
     function handleReactResponsiveWithComponents(){
         navigate('/ReactResponsiveWithComponents')
     }
+    function handleTicTacJoeNav(){
+        navigate('/TicTacJoe')
+    }
+    function handleNewTest(){
+        navigate('/NewTest')
+    }
 
     return(
         <header className="App-header">
@@ -43,17 +50,16 @@ function Header(props){
                 <img className='icon' src="https://cdn-icons-png.flaticon.com/512/174/174882.png" alt="Spotify Logo" />
             </div>
             <div className="app-title">
-                <h1>Jammming!!!</h1>
-                <h2>Create your own playlist!</h2>
+                <h1>Joe Timmer's Portfolio Website</h1>
             </div>
-            <div role="button" className='router-navigation' onClick={props.handleOpenRouterNav} >
-                <p>navigation</p>
-            </div>
-            <div id='router-navigation-menu-closed'>
-                <div className='router-navigation-menu-header'>
-                    <img className='router-close-icon' src='./Close Menu Icon.png' alt='Close Menu Icon' onClick={props.handleCloseRouterNav} />
+            <div className='hoverzone' >
+                <div className='spacer'>
                 </div>
-                <ul>
+                <div className='tight-navigation'>
+                    <p className='Navigation-p'>Navigation</p>
+                    <div className='three-bars'>|||</div>
+                 </div>
+                <ul className='menu'>
                     <li className='router-nav-button' role='button' onClick={handleHomeRouterNav}>r-Home</li>
                     <li className='router-nav-button' role='button' onClick={handleTestRouterNav}>r-test</li>
                     <li className='router-nav-button' role='button' onClick={handleAccessTokenDisplayRouterNav}>Access Token Display</li>
@@ -65,6 +71,8 @@ function Header(props){
                     <li className='router-nav-button' role='button' onClick>r-Obtain Spotify Access Token</li>
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithHooksNav}>React-Responsive With Hooks</li>
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithComponents}>React-Responsive With Components</li>
+                    <li className='router-nav-button' role='button' onClick={handleTicTacJoeNav}>TicTacJoe</li>
+                    <li className='router-nav-button' role='button' onClick={handleNewTest}>NewTest</li>
                 </ul>
             </div>
             
