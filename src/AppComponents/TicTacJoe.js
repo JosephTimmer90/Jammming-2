@@ -1,156 +1,157 @@
-import React, { useRef } from 'react';
-import ticTacJoeSlice from './ticTacJoeSlice';
-import { useDispatch, useSelector } from 'react-redux';
-import { move, updateDialogBoxContent } from './ticTacJoeSlice';
+// import React, { useRef } from 'react';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { updateDialogBoxContent } from './ticTacJoeSlice';
 
-function TicTacJoe(){
+// function TicTacJoe(){
 
-    const dispatch = useDispatch();
+//     const dispatch = useDispatch();
 
-    //declare multi-player variables and variables used for both multi and single player games
-    const playingSpaceIDArray=useSelector(state=>state.ticTacJoe.playingSpaceIDArray);
-    const playingPiece=useSelector(state=>state.ticTacJoe.playingPiece);
-    const gameBoard=useSelector(state=>state.ticTacJoe.gameBoard);
-    const winningConditions=useSelector(state=>state.ticTacJoe.winningConditions);
-    const winningConditionIndex=useSelector(state=>state.ticTacJoe.winningConditionIndex);
-    const XLocations=useSelector(state=>state.ticTacJoe.XLocations);
-    const OLocations=useSelector(state=>state.ticTacJoe.OLocations);
-    const multiplayerGame=useSelector(state=>state.ticTacJoe.multiplayerGame);
-    const singlePlayerGame=useSelector(state=>state.ticTacJoe.singlePlayerGame);
-    const mPlayerXWins=useSelector(state=>state.ticTacJoe.mPlayerXWins);
-    const mPlayerOWins=useSelector(state=>state.ticTacJoe.mPlayerOWins);
-    const mPlayerTotalGames=useSelector(state=>state.ticTacJoe.mPlayerTotalGames);
+//     //declare multi-player variables and variables used for both multi and single player games
+//     const playingSpaceIDArray=useSelector(state=>state.ticTacJoe.playingSpaceIDArray);
+//     const playingPiece=useSelector(state=>state.ticTacJoe.playingPiece);
+//     const gameBoard=useSelector(state=>state.ticTacJoe.gameBoard);
+//     const winningConditions=useSelector(state=>state.ticTacJoe.winningConditions);
+//     const winningConditionIndex=useSelector(state=>state.ticTacJoe.winningConditionIndex);
+//     const XLocations=useSelector(state=>state.ticTacJoe.XLocations);
+//     const OLocations=useSelector(state=>state.ticTacJoe.OLocations);
+//     const multiplayerGame=useSelector(state=>state.ticTacJoe.multiplayerGame);
+//     const singlePlayerGame=useSelector(state=>state.ticTacJoe.singlePlayerGame);
+//     const mPlayerXWins=useSelector(state=>state.ticTacJoe.mPlayerXWins);
+//     const mPlayerOWins=useSelector(state=>state.ticTacJoe.mPlayerOWins);
+//     const mPlayerTotalGames=useSelector(state=>state.ticTacJoe.mPlayerTotalGames);
 
-    //declare variables for single player game
-    const roundNumber=useSelector(state=>state.ticTacJoe.roundNumber);
-    const userPlayingPiece=useSelector(state=>state.ticTacJoe.userPlayingPiece);
-    const computerPlayingPiece=useSelector(state=>state.ticTacJoe.computerPlayingPiece);
-    const sPlayerComputerWins=useSelector(state=>state.ticTacJoe.sPlayerComputerWins);
-    const sPlayerUserWins=useSelector(state=>state.ticTacJoe.sPlayerUserWins);
-    const sPlayerTotalGames=useSelector(state=>state.ticTacJoe.sPlayerTotalGames);
+//     //declare variables for single player game
+//     const roundNumber=useSelector(state=>state.ticTacJoe.roundNumber);
+//     const userPlayingPiece=useSelector(state=>state.ticTacJoe.userPlayingPiece);
+//     const computerPlayingPiece=useSelector(state=>state.ticTacJoe.computerPlayingPiece);
+//     const sPlayerComputerWins=useSelector(state=>state.ticTacJoe.sPlayerComputerWins);
+//     const sPlayerUserWins=useSelector(state=>state.ticTacJoe.sPlayerUserWins);
+//     const sPlayerTotalGames=useSelector(state=>state.ticTacJoe.sPlayerTotalGames);
 
-    //Initialize user interface
-    const xWinsCountValue=useSelector(state=>state.ticTacJoe.xWinsCountValue);
-    const oWinsCountValue=useSelector(state=>state.ticTacJoe.oWinsCountValue);
-    const totalMpGamesCountValue=useSelector(state=>state.ticTacJoe.totalMpGamesCountValue);
-    const dialogBoxContent=useSelector(state=>state.ticTacJoe.dialogBoxContent);
-    const computerWinsCountValue=useSelector(state=>state.ticTacJoe.computerWinsCountValue);
-    const userWinsCountValue = useSelector(state=>state.ticTacJoe.userWinsCountValue);
-    const totalSpGamesCountValue=useSelector(state=>state.ticTacJoe.totalSpGamesCountValue);
-    const gameBoardSection=useSelector(state=>state.ticTacJoe.gameBoardSection);
+//     //Initialize user interface
+//     const xWinsCountValue=useSelector(state=>state.ticTacJoe.xWinsCountValue);
+//     const oWinsCountValue=useSelector(state=>state.ticTacJoe.oWinsCountValue);
+//     const totalMpGamesCountValue=useSelector(state=>state.ticTacJoe.totalMpGamesCountValue);
+//     const dialogBoxContent=useSelector(state=>state.ticTacJoe.dialogBoxContent);
+//     const computerWinsCountValue=useSelector(state=>state.ticTacJoe.computerWinsCountValue);
+//     const userWinsCountValue = useSelector(state=>state.ticTacJoe.userWinsCountValue);
+//     const totalSpGamesCountValue=useSelector(state=>state.ticTacJoe.totalSpGamesCountValue);
+//     const gameBoardSection=useSelector(state=>state.ticTacJoe.gameBoardSection);
 
-    //Sound Effects
-        //Initialize the audio element once using useRef
-    const startGameAudioRef = useRef(new Audio('/TicTacJoe/Start Game Sound.mp3'));
+//     //Sound Effects
+//         //Initialize the audio element once using useRef
+//     const startGameAudioRef = useRef(new Audio('/TicTacJoe/Start Game Sound.mp3'));
 
-    const playStartGameSound = () => {
-        //reset the time to the beginning
-        startGameAudioRef.current.currentTime = 0;
+//     const playStartGameSound = () => {
+//         //reset the time to the beginning
+//         startGameAudioRef.current.currentTime = 0;
 
-        //Play the sound
-        startGameAudioRef.current.play()
-            .catch(error => {
-                console.error("Audio playback failed:", error);
-            })
-    }
+//         //Play the sound
+//         startGameAudioRef.current.play()
+//             .catch(error => {
+//                 console.error("Audio playback failed:", error);
+//             })
+//     }
 
-    const moveSoundAudioRef = useRef(new Audio('/TicTacJoe/Move Sound.mp3'));
+//     const moveSoundAudioRef = useRef(new Audio('/TicTacJoe/Move Sound.mp3'));
 
-    const playMoveSound = () => {
-        //reset the time to the beginning
-        moveSoundAudioRef.current.currentTime = 0;
+//     const playMoveSound = () => {
+//         //reset the time to the beginning
+//         moveSoundAudioRef.current.currentTime = 0;
 
-        //Play the sound
-        moveSoundAudioRef.current.play()
-            .catch(error => {
-                console.error("Audio playback failed:", error);
-            })
-    }
+//         //Play the sound
+//         moveSoundAudioRef.current.play()
+//             .catch(error => {
+//                 console.error("Audio playback failed:", error);
+//             })
+//     }
 
-    const endGameSoundAudioRef = useRef(new Audio('/TicTacJoe/End Game Sound.mp3'));
+//     const endGameSoundAudioRef = useRef(new Audio('/TicTacJoe/End Game Sound.mp3'));
 
-    const playEndGameSound = () => {
-        //reset the time to the beginning
-        endGameSoundAudioRef.current.currentTime = 0;
+//     const playEndGameSound = () => {
+//         //reset the time to the beginning
+//         endGameSoundAudioRef.current.currentTime = 0;
 
-        //Play the sound
-        endGameSoundAudioRef.current.play()
-            .catch(error => {
-                console.error("Audio playback failed:", error);
-            })
-    }
+//         //Play the sound
+//         endGameSoundAudioRef.current.play()
+//             .catch(error => {
+//                 console.error("Audio playback failed:", error);
+//             })
+//     }
 
-    //Multiplayer game
-    function fillPlayingSpaceIDArray(){
-        for(let i=0; i<9; i++){
-            playingSpaceIDArray[i] = `ps-${i}`;
-        }
-    }
+//     //Multiplayer game
+//     function fillPlayingSpaceIDArray(){
+//         for(let i=0; i<9; i++){
+//             playingSpaceIDArray[i] = `ps-${i}`;
+//         }
+//     }
 
-    function resetGameBoard(){
-        gameBoard = ['','','','','','','','',''];
-        winningConditionIndex = null;
+//     function resetGameBoard(){
+//         gameBoard = ['','','','','','','','',''];
+//         winningConditionIndex = null;
         
-        gameBoardSection = (
-            <section id='game-board' class="game-board">
-                <div class="playing-space" id ="ps-0"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-1"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-2"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-3"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-4"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-5"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-6"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-7"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-8"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-            </section>
-        )
-        return gameBoardSection;
-    }
+//         gameBoardSection = (
+//             <section id='game-board' class="game-board">
+//                 <div class="playing-space" id ="ps-0"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-1"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-2"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-3"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-4"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-5"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-6"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-7"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-8"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
+//             </section>
+//         )
+//         return gameBoardSection;
+//     }
 
-    function startMultiplayerGameOnClickHandler(){
-        playStartGameSound()
-        startMultiplayerGame()
-    }
+//     function startMultiplayerGameOnClickHandler(){
+//         playStartGameSound()
+//         startMultiplayerGame()
+//     }
 
-    function onClickHandler(){
-        playMoveSound()
-    }
+//     function onClickHandler(){
+//         playMoveSound()
+//     }
 
-    function startMultiplayerGame(){
-        multiplayerGame = true;
-        resetGameBoard();
-        dispatch(updateDialogBoxContent(<p id="dialog-box-content">Ready to start multiplayer game! X goes first.</p>))
-        playingPiece = 'X';
-        gameBoardSection = (
-            <section id='game-board' class="game-board">
-                <div class="playing-space" id ="ps-0"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-1"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-2"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-3"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-4"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-5"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-6"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-7"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-                <div class="playing-space" id ="ps-8"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
-            </section>
-        )
-    }
+//     function startMultiplayerGame(){
+//         multiplayerGame = true;
+//         resetGameBoard();
+//         dispatch(updateDialogBoxContent(<p id="dialog-box-content">Ready to start multiplayer game! X goes first.</p>))
+//         playingPiece = 'X';
+//         gameBoardSection = (
+//             <section id='game-board' class="game-board">
+//                 <div class="playing-space" id ="ps-0"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-1"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-2"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-3"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-4"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-5"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-6"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-7"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//                 <div class="playing-space" id ="ps-8"onClick={onClickHandler} style={{fontSize: '3rem'}}>-</div>
+//             </section>
+//         )
+//     }
 
-    function upDateGameBoard(){
-        for(let i=0; i<gameBoard.length; i++){
-            gameBoard[i] = document.getElementById(playingSpaceIDArray[i]).innerHTML;
-        }
-        XLocations = [];
-        OLocations = [];
-        for(let i=0; i<gameBoard.length; i++){
-            if(gameBoard[i]==='X'){
-                XLocations.push(i);
-            }
-            else if(gameBoard[i]==='O'){
-                OLocations.push(i);
-            }
-        }
-    }
+//     function upDateGameBoard(){
+//         for(let i=0; i<gameBoard.length; i++){
+//             gameBoard[i] = document.getElementById(playingSpaceIDArray[i]).innerHTML;
+//         }
+//         XLocations = [];
+//         OLocations = [];
+//         for(let i=0; i<gameBoard.length; i++){
+//             if(gameBoard[i]==='X'){
+//                 XLocations.push(i);
+//             }
+//             else if(gameBoard[i]==='O'){
+//                 OLocations.push(i);
+//             }
+//         }
+//     }
+
+// //here
 
     // function upDateSpace(){
     //     this.innerHTML=playingPiece;
@@ -747,88 +748,88 @@ function TicTacJoe(){
     // document.getElementById('start-single-2').addEventListener('click', startSinglePlayerGame);
 
 
-        return (
-        <>
-            <section className='body'>
-                <header>
-                    <h1>TicTacJoe</h1>
-                    <h2>Play TicTacToe against a computer programmed by Joe!</h2>
-                </header>
-                <main>
-                    <section id="dialog-box" class="dialog-box">
-                        <section class="stat-header">
-                            <h3>Multiplayer Stats</h3>
-                            <section id="multiplayer-stats" class="stat-container">
-                                <div id="x-wins" class="stat-box">
-                                    <h4>X-Wins</h4>
-                                    <div class="x-wins-count">
-                                        {xWinsCountValue}
-                                    </div>
-                                </div>
-                                <div id="o-wins" class="stat-box">
-                                    <h4>O-Wins</h4>
-                                    <div class="o-wins-count">
-                                    {oWinsCountValue}
-                                    </div>
-                                </div>
-                                <div id="total-multiplayer-games" class="stat-box stat-box-wide" >
-                                    <h4>Total Multiplayer Games</h4>
-                                    <div class="total-mp-games-count">
-                                        {totalMpGamesCountValue}
-                                    </div>
-                                </div>
-                            </section>
-                        </section>
-                        <a href="#dialog-box">
-                            {dialogBoxContent}
-                        </a>
-                        <section class="stat-header">
-                            <h3>Single-Player Stats</h3>
-                            <section id="Single-Player Stats" class="stat-container">
-                                <div id="computer-wins" class="stat-box">
-                                    <h4>Computer-Wins</h4>
-                                    <div class="computer-wins-count">
-                                        {computerWinsCountValue}
-                                    </div>
-                                </div>
-                                <div id="user-wins" class="stat-box">
-                                    <h4>User-Wins</h4>
-                                    <div class="user-wins-count">
-                                    {userWinsCountValue}
-                                    </div>
-                                </div>
-                                <div id="total-single-player-games" class="stat-box stat-box-wide">
-                                    <h4>Total Single-Player Games</h4>
-                                    <div class="total-sp-games-count">
-                                        {totalSpGamesCountValue}
-                                    </div>
-                                </div>
-                            </section>
-                        </section>
-                    </section>
-                    <section class="game-area">
-                        <section class="space-left">
-                        </section>
-                        <section class="buttons-left button-board">
-                            <button id="start-multi" onClick={playStartGameSound}>Start Multiplayer Game</button>
-                            <button id="start-single-1" class="first-start-single" onClick={playStartGameSound}>Start Single Player Game</button>
-                        </section>
-                        {gameBoardSection}
-                        <section class="buttons-right button-board">
-                            <button id="start-single-2" class="second-start-single" onClick={playStartGameSound} >Start Single Player Game</button>
-                        </section>
-                        <section class="space-right">
+//         return (
+//         <>
+//             <section className='body'>
+//                 <header>
+//                     <h1>TicTacJoe</h1>
+//                     <h2>Play TicTacToe against a computer programmed by Joe!</h2>
+//                 </header>
+//                 <main>
+//                     <section id="dialog-box" class="dialog-box">
+//                         <section class="stat-header">
+//                             <h3>Multiplayer Stats</h3>
+//                             <section id="multiplayer-stats" class="stat-container">
+//                                 <div id="x-wins" class="stat-box">
+//                                     <h4>X-Wins</h4>
+//                                     <div class="x-wins-count">
+//                                         {xWinsCountValue}
+//                                     </div>
+//                                 </div>
+//                                 <div id="o-wins" class="stat-box">
+//                                     <h4>O-Wins</h4>
+//                                     <div class="o-wins-count">
+//                                     {oWinsCountValue}
+//                                     </div>
+//                                 </div>
+//                                 <div id="total-multiplayer-games" class="stat-box stat-box-wide" >
+//                                     <h4>Total Multiplayer Games</h4>
+//                                     <div class="total-mp-games-count">
+//                                         {totalMpGamesCountValue}
+//                                     </div>
+//                                 </div>
+//                             </section>
+//                         </section>
+//                         <a href="#dialog-box">
+//                             {dialogBoxContent}
+//                         </a>
+//                         <section class="stat-header">
+//                             <h3>Single-Player Stats</h3>
+//                             <section id="Single-Player Stats" class="stat-container">
+//                                 <div id="computer-wins" class="stat-box">
+//                                     <h4>Computer-Wins</h4>
+//                                     <div class="computer-wins-count">
+//                                         {computerWinsCountValue}
+//                                     </div>
+//                                 </div>
+//                                 <div id="user-wins" class="stat-box">
+//                                     <h4>User-Wins</h4>
+//                                     <div class="user-wins-count">
+//                                     {userWinsCountValue}
+//                                     </div>
+//                                 </div>
+//                                 <div id="total-single-player-games" class="stat-box stat-box-wide">
+//                                     <h4>Total Single-Player Games</h4>
+//                                     <div class="total-sp-games-count">
+//                                         {totalSpGamesCountValue}
+//                                     </div>
+//                                 </div>
+//                             </section>
+//                         </section>
+//                     </section>
+//                     <section class="game-area">
+//                         <section class="space-left">
+//                         </section>
+//                         <section class="buttons-left button-board">
+//                             <button id="start-multi" onClick={playStartGameSound}>Start Multiplayer Game</button>
+//                             <button id="start-single-1" class="first-start-single" onClick={playStartGameSound}>Start Single Player Game</button>
+//                         </section>
+//                         {gameBoardSection}
+//                         <section class="buttons-right button-board">
+//                             <button id="start-single-2" class="second-start-single" onClick={playStartGameSound} >Start Single Player Game</button>
+//                         </section>
+//                         <section class="space-right">
                             
-                        </section>
-                    </section>
-                </main>
-                <footer id="footer">
-                    Created by JosephTimmer90.com
-                </footer>
+//                         </section>
+//                     </section>
+//                 </main>
+//                 <footer id="footer">
+//                     Created by JosephTimmer90.com
+//                 </footer>
                 
-            </section>
-    </>
-    )
-}
+//             </section>
+//     </>
+//     )
+// }
 
-export default TicTacJoe;
+//export default TicTacJoe;

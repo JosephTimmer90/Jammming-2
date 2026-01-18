@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const ticTacJoeSlice = createSlice({
     name: 'game',
     initialState: {
-                //declare multi-player variables and variables used for both multi and single player games
+        //declare multi-player variables and variables used for both multi and single player games
         playingSpaceIDArray: [],
         playingPiece: 'X',
         gameBoard: ['','','','','','','','',''],
@@ -16,6 +16,7 @@ const ticTacJoeSlice = createSlice({
         mPlayerXWins: 0,
         mPlayerOWins: 0,
         mPlayerTotalGames: 0,
+
         //declare variables for single player game
         roundNumber: 1,
         userPlayingPiece: 'O',
@@ -25,7 +26,6 @@ const ticTacJoeSlice = createSlice({
         sPlayerTotalGames: 0,
 
         //Initialize user interface
-
         xWinsCountValue: <p id="x-wins-count-value" class="stat-value">0</p>,
         oWinsCountValue: <p id="o-wins-count-value" class="stat-value">0</p>,
         totalMpGamesCountValue: <p id="total-mp-games-count-value" class="stat-value">0</p>,
@@ -33,19 +33,7 @@ const ticTacJoeSlice = createSlice({
         computerWinsCountValue: <p id="computer-wins-count-value" class="stat-value">0</p>,
         userWinsCountValue:<p id="user-wins-count-value" class="stat-value">0</p>,
         totalSpGamesCountValue: <p id="total-sp-games-count-value" class="stat-value">0</p>,
-        gameBoardSection: (
-                <section id='game-board' class="game-board">
-                    <div class="playing-space" id ="ps-0"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-1"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-2"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-3"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-4"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-5"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-6"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-7"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                    <div class="playing-space" id ="ps-8"onClick={playMoveSound} style={{fontSize: '3rem'}}>-</div>
-                </section>
-            )
+        gameBoardSection: ''
         
     },
     reducers: {
