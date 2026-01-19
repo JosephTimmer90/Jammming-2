@@ -78,7 +78,6 @@ function Header(props){
                     <li className='router-nav-button' role='button'><a href='./public/TicTacJoe2/index.html' target="_blank">TicTacJoe2</a></li>
                     <li className='router-nav-button' role='button'><a href='./TicTacJoe2/index.html' target="_blank">TicTacJoe2</a></li>
                     <li className='router-nav-button' role='button'><a href='../../public/TicTacJoe2/index.html' target="_blank">TicTacJoe2</a></li>
-
                     <li className='router-nav-button' role='button'><a href='./BasicHTML5Page.html' target="_blank">Basic HTML test page</a></li>
                 </ul>
             </div>

@@ -48,7 +48,6 @@ function App() {
     <Route path='OldApp' element={<OldApp/>} />
     <Route path='ReactResponsiveWithHooks' element={<ReactResponsiveWithHooks />} />
     <Route path='ReactResponsiveWithComponents' element={<ReactResponsiveWithComponents />} />
-    <Route path='TicTacJoe' element={<TicTacJoe />} />
     <Route path='NewTest' element={<NewTest />} />
   </Route>
 ));
