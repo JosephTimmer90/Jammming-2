@@ -9,7 +9,6 @@ import Game from './AppComponents/Game';
 import ObtainSpotifyAccessToken from './AppComponents/ObtainSpotifyAccessToken';
 import ReactResponsiveWithHooks from './AppComponents/ReactResponsiveWithHooks'
 import ReactResponsiveWithComponents from './AppComponents/ReactResponsiveWithComponents';
-import TicTacJoe from './AppComponents/TicTacJoe';
 import NewTest from './AppComponents/NewTest';
 
 import ReactRouterTest from './AppComponents/ReactRouterTest'
