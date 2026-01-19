@@ -68,7 +68,7 @@ function Header(props){
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithHooksNav}>React-Responsive With Hooks</li>
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithComponents}>React-Responsive With Components</li>
                     <li className='router-nav-button' role='button' onClick={handleNewTest}>NewTest</li>
-                    <li className='router-nav-button' role='button'><a href='./TicTacJoeIndex.html' target="_blank">TicTacJoe2</a></li>
+                    <li className='router-nav-button' role='button'><a href='./TicTacJoe2/TicTacJoeIndex.html' target="_blank">TicTacJoe2</a></li>
                     <li className='router-nav-button' role='button'><a href='./BasicHTML5Page.html' target="_blank">Basic HTML test page</a></li>
                 </ul>
             </div>
