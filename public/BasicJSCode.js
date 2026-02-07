@@ -1,1 +1,0 @@
-document.getElementById('Welcome').style.color = "red";

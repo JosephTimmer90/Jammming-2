@@ -10,6 +10,7 @@ export default function Root(props){
                 handleOpenRouterNav={props.handleOpenRouterNav}
                 handleCloseRouterNav={props.handleCloseRouterNav}/>
                 <Outlet />
+                
             <Footer />
         </>
     )

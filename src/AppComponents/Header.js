@@ -6,11 +6,8 @@ import { useNavigate } from 'react-router-dom';
 function Header(props){
 
     const navigate = useNavigate();
-    function handleHomeRouterNav(){
-       navigate('/');
-    }
-    function handleTestRouterNav(){
-        navigate('/test');
+    function handleHomeClick(){
+        navigate('/');
     }
     function handleAccessTokenDisplayRouterNav(){
         navigate('/accessTokenDisplay')
@@ -26,9 +23,6 @@ function Header(props){
     }
     function handleOldAppNav(){
         navigate('/OldApp')
-    }
-    function handleIntroNav(){
-        navigate('/intro')
     }
     function handleReactResponsiveWithHooksNav(){
         navigate('/ReactResponsiveWithHooks')
@@ -55,21 +49,19 @@ function Header(props){
                     <p className='Navigation-p'>Navigation</p>
                     <div className='three-bars'>|||</div>
                  </div>
-                <ul className='menu'>
-                    <li className='router-nav-button' role='button' onClick={handleHomeRouterNav}>r-Home</li>
-                    <li className='router-nav-button' role='button' onClick={handleTestRouterNav}>r-test</li>
+                <ul className='menu' style={{listStyleType: 'none'}}>
+                    <li className='router-nav-button' role='button' onClick={handleHomeClick}>Home</li>
                     <li className='router-nav-button' role='button' onClick={handleAccessTokenDisplayRouterNav}>Access Token Display</li>
                     <li className='router-nav-button' role='button' onClick={handleGameRouterNav}>Game</li>
                     <li className='router-nav-button' role='button' onClick={handleObtainSpotifyAccessTokenNav}>Obtain Spotify Access Token</li>
                     <li className='router-nav-button' role='button' onClick={handleMainNav}>Main</li>
                     <li className='router-nav-button' role='button' onClick={handleOldAppNav}>Old App</li>
-                    <li className='router-nav-button' role='button' onClick={handleIntroNav}>Intro</li>
-                    <li className='router-nav-button' role='button' onClick>r-Obtain Spotify Access Token</li>
+                    <li className='router-nav-button' role='button' onClick={handleObtainSpotifyAccessTokenNav}>Obtain Spotify Access Token</li>
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithHooksNav}>React-Responsive With Hooks</li>
                     <li className='router-nav-button' role='button' onClick={handleReactResponsiveWithComponents}>React-Responsive With Components</li>
                     <li className='router-nav-button' role='button' onClick={handleNewTest}>NewTest</li>
                     <li className='router-nav-button' role='button'><a href='./TicTacJoeIndex.html' target='_blank'>TicTacJoe2 4</a></li>
-                    <li className='router-nav-button' role='button'><a href='./BasicHTML5Page.html' target="_blank">Basic HTML test page</a></li>
+                    <li className='router-nav-button' role='button'><a href='./Portfolio Website.html' target="_blank">Portfolio Website</a></li>
                 </ul>
             </div>
             
